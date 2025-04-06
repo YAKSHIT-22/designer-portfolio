@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectSection from "@/components/ui/projectSection";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -65,15 +65,25 @@ const timeline = [
 ];
 
 const Page = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = ["/hero-image/heropage.svg", "/hero-image/heropage1.svg"];
   const router = useRouter();
   const handleMailClick = () => {
-    const mailtoLink = `mailto:manikagoyal@gmail.com?subject=Portfolio Contact&body=Hi Manika`;
+    const mailtoLink = `mailto:Goyalmanika22@gmail.com?subject=Portfolio Contact&body=Hi Manika`;
     window.location.href = mailtoLink;
   };
   const goTOCV = () => {
-    router.push("/cv");
-  }
+    router.push(
+      "https://drive.google.com/drive/folders/1CeEn4tHPNY8B1flG9-JWLsigUkLjf0-h?usp=sharing"
+    );
+  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <section className="w-full h-full flex items-start justify-start font-popp tracking-tighter">
@@ -92,25 +102,17 @@ const Page = () => {
               </h1>
             </div>
 
-            <div
-              className="relative w-full h-auto flex items-center -mt-26 xs:-mt-24 sm:-mt-18 md:-mt-22 lg:-mt-26 justify-center overflow-hidden"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
+            <div className="relative w-full h-auto flex items-center -mt-26 xs:-mt-24 sm:-mt-18 md:-mt-22 lg:-mt-26 justify-center overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.img
-                  key={isHovered ? "image2" : "image1"}
-                  src={
-                    isHovered
-                      ? "/hero-image/heropage1.svg"
-                      : "/hero-image/heropage.svg"
-                  }
+                  key={images[currentImage]}
+                  src={images[currentImage]}
                   alt="hero"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.02 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="w-full h-84 xs:h-86 sm:h-92 md:h-96 lg:h-128"
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="w-full h-84 xs:h-86 sm:h-92 md:h-96 lg:h-128 object-contain"
                 />
               </AnimatePresence>
             </div>

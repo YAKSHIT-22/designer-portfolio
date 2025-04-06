@@ -21,7 +21,7 @@ export const Footer = () => {
       return;
     }
 
-    const mailtoLink = `mailto:manikagoyal@gmail.com?subject=Portfolio Contact&body=Hi Manika,%0D%0A%0D%0AMy email: ${email}%0D%0A%0D%0A[Write your message here...]`;
+    const mailtoLink = `mailto:Goyalmanika22@gmail.com?subject=Portfolio Contact&body=Hi Manika,%0D%0A%0D%0AMy email: ${email}%0D%0A%0D%0A[Write your message here...]`;
     window.location.href = mailtoLink;
     setEmail("");
   };

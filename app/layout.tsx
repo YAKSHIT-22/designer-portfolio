@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased bg-white text-neutral-900`}
+        className={`${poppins.variable} antialiased bg-black text-white`}
       >
         <Navbar/>
         <Toaster/>
