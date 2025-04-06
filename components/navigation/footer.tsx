@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -64,9 +65,9 @@ export const Footer = () => {
               <p>Copyright© 2025 ManikaGoyal. All Rights Reserved.</p>
             </div>
             <div className='flex items-center justify-center gap-2 w-full'>
-              <img src='/social-icon/behance.svg' alt="behance" className='w-4 h-4' />
-              <img src='/social-icon/instagram.svg' alt="instagram" className='w-4 h-4' />
-              <img src='/social-icon/linkedin.svg' alt="linkedin" className='w-4 h-4' />
+              <Link href="https://www.behance.net/goyalmanikf849"><img src='/social-icon/behance.svg' alt="behance" className='w-4 h-4' /></Link>
+              <Link href="https://www.instagram.com/euphoric_.artt?igsh=YjRocDkxYzh6ZHN6"><img src='/social-icon/instagram.svg' alt="instagram" className='w-4 h-4' /></Link>
+              <Link href="https://www.linkedin.com/in/manika-goyal2000/"><img src='/social-icon/linkedin.svg' alt="linkedin" className='w-4 h-4' /></Link>
             </div>
             <div className='w-full flex items-center justify-center text-sm'>
               User Terms & Conditions | Privacy Policy
