@@ -15,6 +15,7 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --breakpoint-xxs: 300px;
+  --breakpoint-xss: 375px;
   --breakpoint-xs: 390px;
 }
 

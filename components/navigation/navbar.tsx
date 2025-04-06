@@ -21,8 +21,10 @@ export const Navbar = () => {
       <nav className="w-full px-2 pt-6 pb-3 h-full flex items-center justify-center">
         <div className="rounded-full w-full max-w-lg grid grid-cols-5 items-center justify-center px-2 py-2 bg-white text-black relative">
           {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            console.log(pathname, item.href);
+            const isActive =
+            item.href === '/'
+              ? pathname === '/'
+              : pathname.startsWith(item.href);
             return item.isLogo ? (
               <div
                 key="logo"
